@@ -92,7 +92,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
     //then stores them in "n1" and takes the new operator
 
     else if (inp === "=" && op.assigned === false) {
-                console.log( "in arrivo" ) //has to give an error message
+                window.alert("you need to specify an operator first");
     }
     //has to give an error message or simply return the first number
 
@@ -105,9 +105,17 @@ function input (char) { //takes value of pressed button and decide what to do wi
     //opertate n1 and n2 then show result on display
 
     else if (inp === "C") {
-                console.log( "in arrivo" ) //has to crear display and variables
+                n1.val=0;
+                n1.assigned= false;
+                n2.val=0;
+                n2.assigned= false;
+                taken="";
+                op.val="";
+                op.assigned= false;
+                res= "";
+                document.getElementById("display").textContent= "...";
     }
-    //clear display to default
+    //clear display and variables to default
 }
 
 const b1 = document.getElementById("1");
