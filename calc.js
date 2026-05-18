@@ -71,6 +71,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
             taken = taken.concat(inp);
             display = display.concat(inp);
             document.getElementById("display").textContent= display;
+            if (inp === ".") {bp.removeEventListener("click", poin);}
     } // takes number input storing it in taken
 
     else if (inp === "+" && op.assigned === false || inp === "-" && op.assigned === false || 
@@ -81,6 +82,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 taken = "";
                 display = display.concat(inp);
                 document.getElementById("display").textContent= display;
+                bp.addEventListener("click", poin);
     } // takes operator input and stores taken in variable "n1" as the first number to process
     //of "n2" if the second number to process using the assign function
 
@@ -95,6 +97,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 display = String(res);
                 display = display.concat(inp);
                 document.getElementById("display").textContent= display;
+                bp.addEventListener("click", poin);
     } //if there is a second operator after "n2 being assigned" calculate the first two
     //then stores them in "n1" and takes the new operator
 
@@ -108,6 +111,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 taken= "";
                 res = operate(n1.val , op.val , n2.val);
                 document.getElementById("display").textContent= String(res);
+                bp.addEventListener("click", poin);
     }
     //opertate n1 and n2 then show result on display
 
@@ -122,6 +126,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 res= "";
                 display= "";
                 document.getElementById("display").textContent= "...";
+                bp.addEventListener("click", poin);
     }
     //clear display and variables to default
 }
@@ -166,10 +171,11 @@ const b0 = document.getElementById("0");
 b0.addEventListener("click", (event) => {
     input ("0");
 });
+
 const bp = document.getElementById("point");
-bp.addEventListener("click", (event) => {
-    input (".");
-});
+function poin () {input (".");};
+bp.addEventListener("click", poin);
+
 const bC = document.getElementById("clear");
 bC.addEventListener("click", (event) => {
     input ("C");
