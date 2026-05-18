@@ -110,7 +110,8 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 assign(taken);
                 taken= "";
                 res = operate(n1.val , op.val , n2.val);
-                document.getElementById("display").textContent= String(res);
+                display = String(res);
+                document.getElementById("display").textContent= display;
                 bp.addEventListener("click", poin);
     }
     //opertate n1 and n2 then show result on display
