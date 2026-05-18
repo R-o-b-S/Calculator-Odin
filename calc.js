@@ -1,17 +1,17 @@
 
 function add (a,b) { //adds 2 numbers
     const c = a+b;
-    return c;
+    return c.toFixed(2);
 }
 
 function sub (a,b) { //subtruct 2 numbers
     const c = a-b;
-    return c;
+    return c.toFixed(2);
 }
 
 function multi (a,b) { //multiply 2 numbers
     const c = a*b;
-    return c;
+    return c.toFixed(2);
 }
 
 function div (a,b) { //divide 2 numbers
@@ -21,7 +21,7 @@ function div (a,b) { //divide 2 numbers
     }
     else {
         const c = a/b;
-        return c;}
+        return c.toFixed(2);}
     
 }
 
@@ -66,7 +66,8 @@ function input (char) { //takes value of pressed button and decide what to do wi
     const inp = char; //stores every pressed button
 
     if (inp === "1" || inp === "2" || inp === "3" || inp === "4" || inp === "5" ||
-        inp === "6" || inp === "7" || inp === "8" || inp === "9" || inp === "0") {
+        inp === "6" || inp === "7" || inp === "8" || inp === "9" || inp === "0" ||
+        inp === "." ) {
             taken = taken.concat(inp);
             display = display.concat(inp);
             document.getElementById("display").textContent= display;
@@ -167,7 +168,7 @@ b0.addEventListener("click", (event) => {
 });
 const bp = document.getElementById("point");
 bp.addEventListener("click", (event) => {
-    console.log("."); //work in progress
+    input (".");
 });
 const bC = document.getElementById("clear");
 bC.addEventListener("click", (event) => {
