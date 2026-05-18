@@ -52,6 +52,7 @@ let op = {  //temporary store for operator until relative function is called
     val: "",
     assigned: false,
 }
+let display = "";
 
 function input (char) { //takes value of pressed button and decide what to do with it
     const inp = char; //stores every pressed button
@@ -59,6 +60,8 @@ function input (char) { //takes value of pressed button and decide what to do wi
     if (inp === "1" || inp === "2" || inp === "3" || inp === "4" || inp === "5" ||
         inp === "6" || inp === "7" || inp === "8" || inp === "9" || inp === "0") {
             taken = taken.concat(inp);
+            display = display.concat(inp);
+            document.getElementById("display").textContent= display;
     }
     else if (inp === "+" && op.assigned === false || inp === "-" && op.assigned === false || 
              inp === "*" && op.assigned === false || inp === "%" && op.assigned === false) {
@@ -66,6 +69,8 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 op.assigned = true;
                 assign(taken);
                 taken = "";
+                display = display.concat(inp);
+                document.getElementById("display").textContent= display;
     }
     else if (inp === "+" && op.assigned === true || inp === "-" && op.assigned === true ||
              inp === "*" && op.assigned === true || inp === "%" && op.assigned === true) {
