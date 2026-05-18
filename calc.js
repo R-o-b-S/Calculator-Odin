@@ -15,8 +15,14 @@ function multi (a,b) { //multiply 2 numbers
 }
 
 function div (a,b) { //divide 2 numbers
-    const c = a/b;
-    return c;
+    if (b === 0) {
+        window.alert("I can't divide by 0 my friend");
+        input ("C");
+    }
+    else {
+        const c = a/b;
+        return c;}
+    
 }
 
 function operate (a,o,b) { //takes 2 numbers (a,b) and an operator (o) and calls operation function on the numbers
@@ -113,6 +119,7 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 op.val="";
                 op.assigned= false;
                 res= "";
+                display= "";
                 document.getElementById("display").textContent= "...";
     }
     //clear display and variables to default
@@ -164,7 +171,7 @@ bp.addEventListener("click", (event) => {
 });
 const bC = document.getElementById("clear");
 bC.addEventListener("click", (event) => {
-    console.log("C"); //work in progress
+    input ("C");
 });
 const badd = document.getElementById("addiction");
 badd.addEventListener("click", (event) => {
