@@ -201,3 +201,26 @@ const beq = document.getElementById("equal");
 beq.addEventListener("click", (event) => {
     input ("=");
 });
+
+//Input with numpad
+let kIn = "";
+function inKey(k) {
+  kIn = k.code;
+  if (kIn === "Numpad1") {input ("1");}
+  else if (kIn === "Numpad2") {input ("2");}
+  else if (kIn === "Numpad3") {input ("3");}
+  else if (kIn === "Numpad4") {input ("4");}
+  else if (kIn === "Numpad5") {input ("5");}
+  else if (kIn === "Numpad6") {input ("6");}
+  else if (kIn === "Numpad7") {input ("7");}
+  else if (kIn === "Numpad8") {input ("8");}
+  else if (kIn === "Numpad9") {input ("9");}
+  else if (kIn === "Numpad0") {input ("0");}
+  else if (kIn === "NumpadDivide") {input ("%");}
+  else if (kIn === "NumpadMultiply") {input ("*");}
+  else if (kIn === "NumpadSubtract") {input ("-");}
+  else if (kIn === "NumpadAdd") {input ("+");}
+  else if (kIn === "NumpadDecimal") {input (".");}
+  else if (kIn === "NumpadEnter") {input ("=");}
+}
+onkeydown = inKey;
