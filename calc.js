@@ -21,10 +21,10 @@ function div (a,b) { //divide 2 numbers
 
 function operate (a,o,b) { //takes 2 numbers (a,b) and an operator (o) and calls operation function on the numbers
     let r = 0;
-    if (o === "+") {r=add (a,b); return r;}
+    if (o === "+") {r=add (a,b); console.log(r); return r;}
     else if (o === "-") {r=sub (a,b); return r;}
     else if (o === "*") {r=multi (a,b); return r;}
-    else if (o === "/") {r=div (a,b); return r;}
+    else if (o === "%") {r=div (a,b); return r;}
 }
 
 const n1 = {  //obj containing the first imput
@@ -41,12 +41,10 @@ function assign (num) { //function that assign values to n1 and n2
     if (n1.assigned === false) {
         n1.val = Number(num); 
         n1.assigned = true;
-        console.log(n1.val)
     }
     else if (n1.assigned === true && n2.assigned === false) {
         n2.val = Number(num); 
         n2.assigned = true;
-        console.log(n2.val);
     }
 }
 
@@ -73,7 +71,6 @@ function input (char) { //takes value of pressed button and decide what to do wi
                 op.val = String(inp);
                 op.assigned = true;
                 assign(taken);
-                console.log(op.val);
                 taken = "";
                 display = display.concat(inp);
                 document.getElementById("display").textContent= display;
@@ -82,7 +79,15 @@ function input (char) { //takes value of pressed button and decide what to do wi
 
     else if (inp === "+" && op.assigned === true || inp === "-" && op.assigned === true ||
              inp === "*" && op.assigned === true || inp === "%" && op.assigned === true) {
-                console.log( "in arrivo" ) //has to start operation and reset op to false
+                assign(taken);
+                taken= "";
+                res = operate(n1.val , op.val , n2.val);
+                op.val = String(inp);
+                n1.val = Number(res);
+                n2.assigned = false;
+                display = String(res);
+                display = display.concat(inp);
+                document.getElementById("display").textContent= display;
     } //if there is a second operator after "n2 being assigned" calculate the first two
     //then stores them in "n1" and takes the new operator
 
@@ -93,10 +98,11 @@ function input (char) { //takes value of pressed button and decide what to do wi
 
     else if (inp === "=" && op.assigned === true) {
                 assign(taken);
-                let res = operate(n1.val , op.val , n2.val);
+                taken= "";
+                res = operate(n1.val , op.val , n2.val);
                 document.getElementById("display").textContent= String(res);
     }
-    //opertate n1 and n2
+    //opertate n1 and n2 then show result on display
 
     else if (inp === "C") {
                 console.log( "in arrivo" ) //has to crear display and variables
